@@ -1,0 +1,87 @@
+.container {
+  /* height: 100vh; */
+  position: relative;
+}
+.header-container {
+  padding: 1rem;
+  width: 60%;
+  margin: auto;
+}
+.header-title {
+  font-size: 6rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #ad2527;
+}
+.header-intro {
+  font-size: 1.5rem;
+  text-align: center;
+  background-color: azure;
+  border-radius: 5px;
+  padding: 10px;
+  color: black;
+  font-weight: 450;
+  line-height: 31px;
+  box-shadow: black 10px 10px 4px;
+}
+.header-span {
+  color: red;
+}
+
+/* grid */
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(2, 30%);
+  justify-content: center;
+  padding: 1rem;
+  gap: 1rem;
+}
+.card {
+  background-color: rgba(163, 36, 36, 0.11);
+  border-radius: 10px;
+  padding: 1rem;
+  transition: all linear 400ms;
+}
+.card:hover {
+  background-color: rgba(163, 36, 36, 0.301);
+}
+.card-top {
+  width: 100%;
+  height: 400px;
+}
+.card-bottom {
+  text-align: center;
+  padding-top: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.card-bottom button {
+  width: 50%;
+  font-size: 1.2rem;
+  border: 2px red;
+  font-weight: 600;
+  transition: all linear 400ms;
+}
+.card-bottom button:hover {
+  color: white;
+  cursor: pointer;
+}
+.card-start {
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+  margin-right: 2px;
+  background-color: green;
+}
+.card-leaderboard {
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+  background-color: rgb(179, 25, 14);
+}
+.card-start:hover {
+  background-color: rgb(20, 233, 20);
+}
+.card-leaderboard:hover {
+  background-color: rgb(247, 39, 25);
+}
