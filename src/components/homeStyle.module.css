@@ -12,6 +12,7 @@
   text-align: center;
   margin-bottom: 2rem;
   color: #ad2527;
+  font-family: "Fredoka One", cursive;
 }
 .header-intro {
   font-size: 1.5rem;
@@ -57,8 +58,11 @@
   justify-content: center;
   align-items: center;
 }
-.card-bottom button {
+.card-link {
   width: 50%;
+}
+.card-bottom button {
+  width: 100%;
   font-size: 1.2rem;
   border: 2px red;
   font-weight: 600;
