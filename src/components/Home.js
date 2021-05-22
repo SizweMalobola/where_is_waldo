@@ -24,17 +24,6 @@ function Home() {
           <span className={styles["header-span"]}>FIND WALDO!</span>
         </p>
       </div>
-      {/* <ul>
-        <Link to="/puzzle/1">
-          <li>puzzle 1</li>
-        </Link>
-        <Link to="/puzzle/2">
-          <li>puzzle 2</li>
-        </Link>
-        <Link to="/puzzle/3">
-          <li>puzzle 3</li>
-        </Link>
-      </ul> */}
       <div className={styles["grid-container"]}>
         <div className={styles["card"]}>
           <div
@@ -45,8 +34,15 @@ function Home() {
             }}
           ></div>
           <div className={styles["card-bottom"]}>
-            <button className={styles["card-start"]}>Start</button>{" "}
-            <button className={styles["card-leaderboard"]}>Leaderboard</button>
+            <Link className={styles["card-link"]} to="/puzzle/1">
+              {" "}
+              <button className={styles["card-start"]}>Start</button>{" "}
+            </Link>{" "}
+            <Link className={styles["card-link"]} to="/leaderboard/1">
+              <button className={styles["card-leaderboard"]}>
+                Leaderboard
+              </button>
+            </Link>
           </div>
         </div>
         <div className={styles["card"]}>
@@ -58,8 +54,15 @@ function Home() {
             }}
           ></div>
           <div className={styles["card-bottom"]}>
-            <button className={styles["card-start"]}>Start</button>{" "}
-            <button className={styles["card-leaderboard"]}>Leaderboard</button>
+            <Link className={styles["card-link"]} to="/puzzle/2">
+              {" "}
+              <button className={styles["card-start"]}>Start</button>{" "}
+            </Link>{" "}
+            <Link className={styles["card-link"]} to="/leaderboard/2">
+              <button className={styles["card-leaderboard"]}>
+                Leaderboard
+              </button>
+            </Link>
           </div>
         </div>
         <div className={styles["card"]}>
@@ -71,8 +74,15 @@ function Home() {
             }}
           ></div>
           <div className={styles["card-bottom"]}>
-            <button className={styles["card-start"]}>Start</button>{" "}
-            <button className={styles["card-leaderboard"]}>Leaderboard</button>
+            <Link className={styles["card-link"]} to="/puzzle/3">
+              {" "}
+              <button className={styles["card-start"]}>Start</button>{" "}
+            </Link>{" "}
+            <Link className={styles["card-link"]} to="/leaderboard/3">
+              <button className={styles["card-leaderboard"]}>
+                Leaderboard
+              </button>
+            </Link>
           </div>
         </div>
         <div className={styles["card"]}>
@@ -84,8 +94,15 @@ function Home() {
             }}
           ></div>
           <div className={styles["card-bottom"]}>
-            <button className={styles["card-start"]}>Start</button>{" "}
-            <button className={styles["card-leaderboard"]}>Leaderboard</button>
+            <Link className={styles["card-link"]} to="/puzzle/4">
+              {" "}
+              <button className={styles["card-start"]}>Start</button>{" "}
+            </Link>{" "}
+            <Link className={styles["card-link"]} to="/leaderboard/4">
+              <button className={styles["card-leaderboard"]}>
+                Leaderboard
+              </button>
+            </Link>
           </div>
         </div>
       </div>
