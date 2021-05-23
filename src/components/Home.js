@@ -30,7 +30,7 @@ function Home() {
             className={styles["card-top"]}
             style={{
               background: `url(${process.env.PUBLIC_URL}/assets/puzzle_1.jpg)`,
-              backgroundSize: "contain",
+              backgroundSize: "cover",
             }}
           ></div>
           <div className={styles["card-bottom"]}>
@@ -50,7 +50,7 @@ function Home() {
             className={styles["card-top"]}
             style={{
               background: `url(${process.env.PUBLIC_URL}/assets/puzzle_2.jpg)`,
-              backgroundSize: "contain",
+              backgroundSize: "cover",
             }}
           ></div>
           <div className={styles["card-bottom"]}>
@@ -70,7 +70,7 @@ function Home() {
             className={styles["card-top"]}
             style={{
               background: `url(${process.env.PUBLIC_URL}/assets/puzzle_3.jpeg)`,
-              backgroundSize: "contain",
+              backgroundSize: "cover",
             }}
           ></div>
           <div className={styles["card-bottom"]}>
@@ -90,7 +90,7 @@ function Home() {
             className={styles["card-top"]}
             style={{
               background: `url(${process.env.PUBLIC_URL}/assets/puzzle_4.jpg)`,
-              backgroundSize: "contain",
+              backgroundSize: "cover",
             }}
           ></div>
           <div className={styles["card-bottom"]}>
