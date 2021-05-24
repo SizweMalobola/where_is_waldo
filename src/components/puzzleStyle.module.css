@@ -1,0 +1,9 @@
+.puzzle-title {
+  color: aquamarine;
+}
+.img-container {
+}
+.img-container img {
+  max-width: 100%;
+  height: auto;
+}
