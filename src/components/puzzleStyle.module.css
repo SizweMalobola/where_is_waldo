@@ -33,6 +33,7 @@
 .status-container div p {
   margin-right: 1rem;
   font-size: 1.5rem;
+  font-weight: 500;
 }
 .dropdown-menu {
   position: absolute;
@@ -41,4 +42,9 @@
 }
 .hidden {
   display: none;
+}
+.found {
+  text-decoration: line-through;
+  text-decoration-color: crimson;
+  text-decoration-thickness: 3px;
 }
