@@ -1,9 +1,36 @@
-.puzzle-title {
-  color: aquamarine;
+.main-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #002b55;
+  min-height: 100vh;
 }
 .img-container {
+  max-width: 1800px;
+  min-width: 1800px;
+  max-height: 800px;
+  min-height: 800px;
+  overflow: scroll;
+  position: relative;
 }
-.img-container img {
-  max-width: 100%;
-  height: auto;
+.status-container {
+  background-color: aquamarine;
+  background-image: linear-gradient(#113f6d, #195897);
+  min-width: 1800px;
+  padding: 1rem;
+  display: flex;
+  align-items: baseline;
+}
+.status-container h1 {
+  margin-right: 2rem;
+}
+.status-container div {
+  display: flex;
+  justify-content: space-around;
+}
+
+.status-container div p {
+  margin-right: 1rem;
+  font-size: 1.5rem;
 }
