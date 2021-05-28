@@ -162,8 +162,9 @@ function Puzzle() {
   // helper functions
   const tag = (e, target) => {
     //tag is going to check whether x,y coordinates are within the tagging parameter()
-    let x = e.target.parentElement.offsetLeft;
-    let y = e.target.parentElement.offsetTop;
+    const parentDiv = e.target.parentElement;
+    const x = parentDiv.offsetLeft;
+    const y = parentDiv.offsetTop;
     let tagged = false;
     if (
       x >= target.xLeft &&
@@ -172,6 +173,10 @@ function Puzzle() {
       y <= target.yBottom
     ) {
       tagged = true;
+    }
+    // this hides dropdown menu
+    if (!parentDiv.classList.contains(`${styles["hidden"]}`)) {
+      parentDiv.classList.toggle(`${styles["hidden"]}`, true);
     }
     return tagged;
   };
@@ -184,9 +189,15 @@ function Puzzle() {
     const dropdown = dropdownRef.current;
     dropdown.style.top = `${y}px`;
     dropdown.style.left = `${x}px`;
-    //TODO I have to find a way to make dropdown disappear and reappear when I click on the image.
+    // now dropdown can disapper and reappear
+    if (dropdown.classList.contains(`${styles["hidden"]}`)) {
+      dropdown.classList.toggle(`${styles["hidden"]}`, false);
+    } else {
+      dropdown.classList.toggle(`${styles["hidden"]}`, true);
+    }
   };
   // side effects
+  // TODO find a way to stop the timer when waldo and his accomplices are found
   useEffect(() => {
     console.log("useEffect");
     setTimeout(() => {
@@ -197,7 +208,10 @@ function Puzzle() {
   return (
     <div className={styles["main-container"]}>
       <div className={styles["img-container"]}>
-        <ul ref={dropdownRef} className={styles["dropdown-menu"]}>
+        <ul
+          ref={dropdownRef}
+          className={`${styles["dropdown-menu"]} ${styles["hidden"]}`}
+        >
           {!waldo.tagged && (
             <li
               onClick={(e) => {
@@ -246,9 +260,9 @@ function Puzzle() {
       <div className={styles["status-container"]}>
         <h1>Time: {time}s</h1>
         <div>
-          <p className={waldo.tagged && styles["found"]}>Waldo </p>
-          <p className={odlaw.tagged && styles["found"]}>Odlaw</p>
-          <p className={wizard.tagged && styles["found"]}>Wizard</p>
+          <p className={waldo.tagged ? styles["found"] : null}>Waldo </p>
+          <p className={odlaw.tagged ? styles["found"] : null}>Odlaw</p>
+          <p className={wizard.tagged ? styles["found"] : null}>Wizard</p>
         </div>
       </div>
     </div>
