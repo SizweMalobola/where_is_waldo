@@ -160,6 +160,7 @@ function Puzzle() {
   });
   const dropdownRef = useRef(null);
   // helper functions
+  // TODO I have to mark the tagged spots, a tick when player finds the correct target and a cross when they find the wrong parson.
   const tag = (e, target) => {
     //tag is going to check whether x,y coordinates are within the tagging parameter()
     const parentDiv = e.target.parentElement;
@@ -196,14 +197,18 @@ function Puzzle() {
       dropdown.classList.toggle(`${styles["hidden"]}`, true);
     }
   };
+
   // side effects
-  // TODO find a way to stop the timer when waldo and his accomplices are found
   useEffect(() => {
-    console.log("useEffect");
-    setTimeout(() => {
+    const timer = setTimeout(() => {
       setTime(time + 1);
     }, 1000);
-  }, [time]);
+    // timer is stopped after all waldo and his friends are found.
+    if (waldo.tagged && odlaw.tagged && wizard.tagged) {
+      clearTimeout(timer);
+      console.log(`game finished after ${time}s`);
+    }
+  }, [odlaw.tagged, time, waldo.tagged, wizard.tagged]);
 
   return (
     <div className={styles["main-container"]}>
