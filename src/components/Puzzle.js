@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useHistory } from "react-router";
+// import { ImAirplane } from "react-icons/im";
 import styles from "./puzzleStyle.module.css";
 
 function Puzzle() {
@@ -160,7 +161,6 @@ function Puzzle() {
   });
   const dropdownRef = useRef(null);
   // helper functions
-  // TODO I have to mark the tagged spots, a tick when player finds the correct target and a cross when they find the wrong parson.
   const tag = (e, target) => {
     //tag is going to check whether x,y coordinates are within the tagging parameter()
     const parentDiv = e.target.parentElement;
@@ -175,11 +175,27 @@ function Puzzle() {
     ) {
       tagged = true;
     }
+    // mark
+    mark(parentDiv, tagged);
     // this hides dropdown menu
     if (!parentDiv.classList.contains(`${styles["hidden"]}`)) {
       parentDiv.classList.toggle(`${styles["hidden"]}`, true);
     }
     return tagged;
+  };
+  // TODO find a way to use to make the mark an icon
+  const mark = (parentDiv, tag) => {
+    let el = document.createElement("p");
+    el.innerText = "mark";
+    el.classList.add(`${styles["mark"]}`);
+    el.style.top = `${parentDiv.offsetTop}px`;
+    el.style.left = `${parentDiv.offsetLeft}px`;
+    if (tag) {
+      el.style.color = "green";
+    } else {
+      el.style.color = "red";
+    }
+    parentDiv.parentElement.appendChild(el);
   };
 
   const clickHandler = (e) => {
