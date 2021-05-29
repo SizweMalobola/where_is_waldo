@@ -48,10 +48,23 @@
   text-decoration-color: crimson;
   text-decoration-thickness: 3px;
 }
-.mark {
+.mark-container {
   position: absolute;
-  width: 20px;
-  height: 20px;
-  font-size: 100%;
-  color: red;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.mark-container svg {
+  width: 100%;
+  height: 100%;
+}
+.tick {
+  color: greenyellow;
+}
+.cross {
+  color: crimson;
 }
