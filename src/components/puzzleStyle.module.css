@@ -48,3 +48,10 @@
   text-decoration-color: crimson;
   text-decoration-thickness: 3px;
 }
+.mark {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  font-size: 100%;
+  color: red;
+}
