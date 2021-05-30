@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useHistory } from "react-router";
+import Endgame from "./Endgame";
 import styles from "./puzzleStyle.module.css";
 
 function Puzzle() {
@@ -158,13 +159,12 @@ function Puzzle() {
     }
     return puzzleUrl;
   });
+  const [modal, setModal] = useState(false);
   const dropdownRef = useRef(null);
   // helper functions
   const tag = (e, target) => {
     //tag is going to check whether x,y coordinates are within the tagging parameter()
-    // !temp fix
-    const parentDiv = e.target.parentElement.parentElement;
-    console.log(e.target);
+    const parentDiv = e.currentTarget.parentElement;
     const x = parentDiv.offsetLeft;
     const y = parentDiv.offsetTop;
     let tagged = false;
@@ -184,6 +184,7 @@ function Puzzle() {
     }
     return tagged;
   };
+
   const mark = (parentDiv, tag) => {
     let el = document.createElement("div");
     el.classList.add(`${styles["mark-container"]}`);
@@ -214,6 +215,9 @@ function Puzzle() {
     }
   };
 
+  const closeModal = () => {
+    setModal(false);
+  };
   // side effects
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -223,14 +227,13 @@ function Puzzle() {
     if (waldo.tagged && odlaw.tagged && wizard.tagged) {
       clearTimeout(timer);
       console.log(`game finished after ${time}s`);
+      setModal(true);
     }
   }, [odlaw.tagged, time, waldo.tagged, wizard.tagged]);
 
-  // TODO add game over screen when the game after every target is found(can be a component or I could just add it here)
   return (
     <div className={styles["main-container"]}>
       <div className={styles["img-container"]}>
-        {/* Make dropdown menu display picture of the targets */}
         <ul
           ref={dropdownRef}
           className={`${styles["dropdown-menu"]} ${styles["hidden"]}`}
@@ -290,13 +293,28 @@ function Puzzle() {
         />
       </div>
       <div className={styles["status-container"]}>
-        <h1>Time: {time}s</h1>
+        {[waldo.tagged, odlaw.tagged, wizard.tagged].every(
+          (i) => i === true
+        ) ? (
+          <h1
+            className={styles["sub-time"]}
+            onClick={() => {
+              setModal(true);
+            }}
+          >
+            Submit your time of {time}s
+          </h1>
+        ) : (
+          <h1>Time: {time}s</h1>
+        )}
+
         <div>
           <p className={waldo.tagged ? styles["found"] : null}>Waldo </p>
           <p className={odlaw.tagged ? styles["found"] : null}>Odlaw</p>
           <p className={wizard.tagged ? styles["found"] : null}>Wizard</p>
         </div>
       </div>
+      {modal && <Endgame closeModal={closeModal} time={time} />}
     </div>
   );
 }
