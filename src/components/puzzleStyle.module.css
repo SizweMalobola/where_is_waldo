@@ -89,3 +89,13 @@
 .red:hover {
   color: rgba(220, 20, 60, 0.336);
 }
+
+.sub-time {
+  color: red;
+  font-size: 1.5rem;
+  background-color: royalblue;
+  border: 2px solid darkgray;
+}
+.sub-time:hover {
+  cursor: pointer;
+}
