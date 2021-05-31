@@ -6,12 +6,17 @@ function Leaderboard() {
   console.log(history);
   return (
     <div>
-      <h1>this is the Leaderboard</h1>
+      <nav>
+        <h1>Leaderboard</h1>
+      </nav>
+      <div></div>
       <button
         onClick={() => {
           history.goBack();
         }}
-      ></button>
+      >
+        Back
+      </button>
     </div>
   );
 }
