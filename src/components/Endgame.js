@@ -6,8 +6,10 @@ function Endgame({ time, closeModal }) {
     <>
       <div
         className={styles["modal"]}
-        onClick={() => {
-          closeModal();
+        onClick={(e) => {
+          if (e.target.classList.contains(`${styles["modal"]}`)) {
+            closeModal();
+          }
         }}
       >
         <button
