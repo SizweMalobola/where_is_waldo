@@ -15,13 +15,20 @@ const firebaseConfig = {
 
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
-
 const database = firebase.database();
 
-// const dbRefObject = database.ref().child("object");
+// create ref from db object
+const dbRefObject = database.ref("leaderboard");
+// function pushes score to firebase realtime db
+const pushScore = (lb, n, t) => {
+  dbRefObject.child(lb).child(`${n}`).set({
+    name: n,
+    time: t,
+  });
+};
+//
+const getScore = () => {
+  dbRefObject.on("value", (snap) => console.log(snap.val()));
+};
 
-// // Sync object changes
-// dbRefObject.on("value", (snap) => console.log(snap.val()));
-// // export default app;
-
-export { database };
+export { pushScore, getScore };
