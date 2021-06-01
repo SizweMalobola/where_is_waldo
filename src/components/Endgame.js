@@ -1,7 +1,31 @@
-import React from "react";
+import React, { useRef } from "react";
 import styles from "./endgameStyle.module.css";
+import { pushScore } from "../firebase";
 
-function Endgame({ time, closeModal }) {
+function Endgame({ time, closeModal, history }) {
+  const inputRef = useRef();
+  const lbPath = () => {
+    const currentPath = history.location.pathname;
+    let lb;
+    switch (currentPath) {
+      case "/puzzle/1":
+        lb = 1;
+        break;
+      case "/puzzle/2":
+        lb = 2;
+
+        break;
+      case "/puzzle/3":
+        lb = 3;
+        break;
+
+      default:
+        lb = 4;
+        break;
+    }
+    // this function returns the leaderboard number that represents the path in the bd
+    return lb;
+  };
   return (
     <>
       <div
@@ -26,8 +50,25 @@ function Endgame({ time, closeModal }) {
           </h1>
           <div className={styles["input-div"]}>
             <label htmlFor="name">Name</label>
-            <input id="name" type="text" placeholder="Anonymous"></input>
-            <button className={styles["btn-submit"]}>
+            <input
+              ref={inputRef}
+              id="name"
+              type="text"
+              placeholder="Anonymous"
+              required
+            ></input>
+            <button
+              className={styles["btn-submit"]}
+              // this onclick event pushes name and time to database & goes to puzzle's leaderboard
+              onClick={() => {
+                if (inputRef.current.value) {
+                  pushScore(lbPath(), inputRef.current.value, time);
+                } else {
+                  pushScore(lbPath(), "anonymous", time);
+                }
+                history.push(`/leaderboard/${lbPath()}`);
+              }}
+            >
               Submit to leaderboard
             </button>
           </div>
