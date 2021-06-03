@@ -1,0 +1,29 @@
+.leaderboard-container {
+  background-color: black;
+}
+.leaderboard-top {
+  background-image: url("https://cdn.drawception.com/images/panels/2016/5-30/RgsCrODYWb-10.png");
+  background-size: contain;
+  background-position: left;
+  background-repeat: no-repeat;
+  height: 200px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.leaderboard-title {
+  background-color: white;
+  padding: 10px;
+  width: 60%;
+}
+.leaderboard-btn {
+  width: 100%;
+  padding: 5px 0;
+  font-size: 1.2rem;
+}
+.table-container {
+  background-color: white;
+  min-height: 500px;
+}
