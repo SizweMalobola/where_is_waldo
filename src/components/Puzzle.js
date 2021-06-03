@@ -6,9 +6,9 @@ import styles from "./puzzleStyle.module.css";
 function Puzzle() {
   // set a count, that will keep track of seconds after the game has started.
   const history = useHistory();
+  const pathname = history.location.pathname;
   const [time, setTime] = useState(0);
   const [waldo, setWaldo] = useState(() => {
-    const pathname = history.location.pathname;
     let stateObj;
     switch (pathname) {
       case "/puzzle/1":
@@ -52,7 +52,6 @@ function Puzzle() {
     return stateObj;
   });
   const [odlaw, setOdlaw] = useState(() => {
-    const pathname = history.location.pathname;
     let stateObj;
     switch (pathname) {
       case "/puzzle/1":
@@ -96,7 +95,6 @@ function Puzzle() {
     return stateObj;
   });
   const [wizard, setWizard] = useState(() => {
-    const pathname = history.location.pathname;
     let stateObj;
     switch (pathname) {
       case "/puzzle/1":
@@ -140,7 +138,6 @@ function Puzzle() {
     return stateObj;
   });
   const [puzzleUrl] = useState(() => {
-    const pathname = history.location.pathname;
     let puzzleUrl;
     switch (pathname) {
       case "/puzzle/1":
@@ -314,7 +311,9 @@ function Puzzle() {
           <p className={wizard.tagged ? styles["found"] : null}>Wizard</p>
         </div>
       </div>
-      {modal && <Endgame closeModal={closeModal} time={time} />}
+      {modal && (
+        <Endgame history={history} closeModal={closeModal} time={time} />
+      )}
     </div>
   );
 }
