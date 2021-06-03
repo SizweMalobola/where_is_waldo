@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styles from "./leaderboardStyle.module.css";
 import { useHistory } from "react-router";
-// import { getScore } from "../firebase";
 import { dbRefObject } from "../firebase";
 
 function Leaderboard() {
@@ -22,7 +21,7 @@ function Leaderboard() {
       }
     });
   }, [lbNum]);
-
+  // Todo render sorted scores from db.
   return (
     <div className={styles["leaderboard-container"]}>
       <div className={styles["leaderboard-top"]}>
@@ -41,32 +40,48 @@ function Leaderboard() {
           <h2>Leaderboard</h2>
         </div>
       </div>
-      <button className={styles["leaderboard-btn"]}>Play</button>
+      <button
+        className={styles["leaderboard-btn"]}
+        onClick={() => {
+          history.push(`/puzzle/${lbNum}`);
+        }}
+      >
+        Play
+      </button>
       <div className={styles["table-container"]}>
-        <table>
-          <thead>
-            <tr>
-              <th>Rank</th>
-              <th>Name</th>
-              <th>Time</th>
-            </tr>
-          </thead>
-          <tbody></tbody>
-        </table>
+        {database ? (
+          <table>
+            <thead>
+              <tr>
+                <th className={styles["table-rank"]}>Rank</th>
+                <th className={styles["table-name"]}>Name</th>
+                <th className={styles["table-time"]}>Time</th>
+              </tr>
+            </thead>
+            <tbody className={styles["table-content"]}>
+              {database
+                .sort((a, b) => {
+                  return a.time - b.time;
+                })
+                .map((obj, index) => {
+                  return (
+                    <tr key={index + obj.time}>
+                      <td>{index + 1}</td>
+                      <td>{obj.name}</td>
+                      <td>{obj.time}s</td>
+                    </tr>
+                  );
+                })}
+            </tbody>
+          </table>
+        ) : null}
       </div>
       <button
         onClick={() => {
-          history.goBack();
+          history.push("/");
         }}
       >
-        Back
-      </button>
-      <button
-        onClick={() => {
-          console.log(database);
-        }}
-      >
-        get score
+        Home
       </button>
     </div>
   );
