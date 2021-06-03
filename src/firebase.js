@@ -16,19 +16,14 @@ const firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 const database = firebase.database();
-
 // create ref from db object
 const dbRefObject = database.ref("leaderboard");
-// function pushes score to firebase realtime db
+// create ref for leaderboard 1
 const pushScore = (lb, n, t) => {
-  dbRefObject.child(lb).child(`${n}`).set({
+  dbRefObject.child(lb).child(n).set({
     name: n,
     time: t,
   });
 };
-//
-const getScore = () => {
-  dbRefObject.on("value", (snap) => console.log(snap.val()));
-};
 
-export { pushScore, getScore };
+export { pushScore, dbRefObject };
