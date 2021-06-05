@@ -319,4 +319,3 @@ function Puzzle() {
 }
 
 export default Puzzle;
-// waldo in jail https://cdn.drawception.com/images/panels/2016/5-30/RgsCrODYWb-10.png
