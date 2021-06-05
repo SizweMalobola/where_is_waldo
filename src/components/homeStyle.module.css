@@ -1,5 +1,4 @@
 .container {
-  /* height: 100vh; */
   position: relative;
 }
 .header-container {
@@ -106,4 +105,132 @@
 }
 .card-leaderboard:hover {
   background-color: rgb(247, 39, 25);
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  .header-container {
+    width: 90%;
+  }
+  .header-title {
+    font-size: 4rem;
+  }
+  .header-intro {
+    font-size: 1.4rem;
+  }
+  .grid-container {
+    width: 90%;
+    grid-template-columns: 100%;
+    margin: 0 auto;
+  }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+  .header-container {
+    width: 90%;
+  }
+  .header-title {
+    font-size: 5rem;
+  }
+  .header-intro {
+    font-size: 1.4rem;
+  }
+  .grid-container {
+    width: 90%;
+    grid-template-columns: 100%;
+    margin: 0 auto;
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  .header-container {
+    width: 90%;
+  }
+  .header-title {
+    font-size: 5rem;
+  }
+  .header-intro {
+    font-size: 1.5rem;
+  }
+  .grid-container {
+    width: 90%;
+    grid-template-columns: minmax(0, 850px);
+    grid-template-rows: 1fr;
+    margin: 0 auto;
+  }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  .header-container {
+    width: 85%;
+  }
+  .header-title {
+    font-size: 5rem;
+  }
+  .header-intro {
+    font-size: 1.5rem;
+  }
+  .grid-container {
+    width: 85%;
+    grid-template-columns: repeat(2, 1fr);
+    margin: 0 auto;
+  }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+  .header-container {
+    width: 80%;
+  }
+  .header-title {
+    font-size: 6rem;
+  }
+  .header-intro {
+    font-size: 1.5rem;
+  }
+  .grid-container {
+    width: 80%;
+    grid-template-columns: repeat(2, 1fr);
+    margin: 0 auto;
+  }
+}
+
+@media only screen and (min-width: 1600px) {
+  .header-container {
+    width: 75%;
+  }
+  .header-title {
+    font-size: 6rem;
+  }
+  .header-intro {
+    font-size: 1.5rem;
+  }
+  .grid-container {
+    width: 75%;
+    grid-template-columns: repeat(2, 1fr);
+    margin: 0 auto;
+  }
+}
+
+@media only screen and (min-width: 1920px) {
+  .container {
+    max-width: 1920px;
+  }
+  .header-container {
+    width: 75%;
+  }
+  .header-title {
+    font-size: 6rem;
+  }
+  .header-intro {
+    font-size: 1.5rem;
+  }
+  .grid-container {
+    width: 75%;
+    grid-template-columns: repeat(2, 1fr);
+    margin: 0 auto;
+  }
 }

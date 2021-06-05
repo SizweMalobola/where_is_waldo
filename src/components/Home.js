@@ -25,6 +25,7 @@ function Home() {
           style={{
             background: `url(${process.env.PUBLIC_URL}/assets/home_background.png)`,
             backgroundAttachment: "fixed",
+            backgroundRepeat: "no-repeat",
           }}
           className={styles.container}
         >
