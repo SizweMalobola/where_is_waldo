@@ -8,7 +8,6 @@ function Puzzle() {
   const history = useHistory();
   const pathname = history.location.pathname;
   const [time, setTime] = useState(0);
-  const [gameover, setGameover] = useState(false);
   const [waldo, setWaldo] = useState(() => {
     let stateObj;
     switch (pathname) {
@@ -220,7 +219,7 @@ function Puzzle() {
   // todo try to fix this, and make the page more responsive
   useEffect(() => {
     const timer = setTimeout(() => {
-      setTime(time + 1);
+      setTime((prev) => prev + 1);
     }, 1000);
     // timer is stopped after all waldo and his friends are found.
     if (!(waldo.tagged && odlaw.tagged && wizard.tagged)) {
@@ -230,7 +229,7 @@ function Puzzle() {
     }
     // ! temp fix
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [time]);
+  }, []);
 
   return (
     <>
