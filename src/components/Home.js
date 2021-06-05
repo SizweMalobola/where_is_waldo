@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import styles from "./homeStyle.module.css";
 function Home() {
+  //Todo add loading screen on the initial load
+
   return (
     <div
       style={{
@@ -18,21 +20,20 @@ function Home() {
           World. Wanted in multiple countries for countless shit. Waldo is
           extremely deadly, everyone who goes after him ends up dead in a ditch
           in a matter of hours. Just the action of reading this message has put
-          you in his deadly sights [name]. Now you have no choice but to find
-          him and his crafty accomplices, before you end up dead in a ditch in
-          the middle of nowhere. It's a matter of life and death,{" "}
+          you in his deadly sights. Now you have no choice but to find him and
+          his crafty accomplices, before you end up dead in a ditch in the
+          middle of nowhere. It's a matter of life and death,{" "}
           <span className={styles["header-span"]}>FIND WALDO!</span>
         </p>
       </div>
       <div className={styles["grid-container"]}>
         <div className={styles["card"]}>
-          <div
-            className={styles["card-top"]}
-            style={{
-              background: `url(${process.env.PUBLIC_URL}/assets/puzzle_1.jpg)`,
-              backgroundSize: "cover",
-            }}
-          ></div>
+          <div className={styles["card-top"]}>
+            <img
+              src={`${process.env.PUBLIC_URL}/assets/puzzle_1.jpg`}
+              alt="puzzle 1"
+            />
+          </div>
           <div className={styles["card-bottom"]}>
             <Link className={styles["card-link"]} to="/puzzle/1">
               {" "}
@@ -46,13 +47,12 @@ function Home() {
           </div>
         </div>
         <div className={styles["card"]}>
-          <div
-            className={styles["card-top"]}
-            style={{
-              background: `url(${process.env.PUBLIC_URL}/assets/puzzle_2.jpg)`,
-              backgroundSize: "cover",
-            }}
-          ></div>
+          <div className={styles["card-top"]}>
+            <img
+              src={`${process.env.PUBLIC_URL}/assets/puzzle_2.jpg`}
+              alt="puzzle 2"
+            />
+          </div>
           <div className={styles["card-bottom"]}>
             <Link className={styles["card-link"]} to="/puzzle/2">
               {" "}
@@ -66,13 +66,12 @@ function Home() {
           </div>
         </div>
         <div className={styles["card"]}>
-          <div
-            className={styles["card-top"]}
-            style={{
-              background: `url(${process.env.PUBLIC_URL}/assets/puzzle_3.jpeg)`,
-              backgroundSize: "cover",
-            }}
-          ></div>
+          <div className={styles["card-top"]}>
+            <img
+              src={`${process.env.PUBLIC_URL}/assets/puzzle_3.jpeg`}
+              alt="puzzle 3"
+            />
+          </div>
           <div className={styles["card-bottom"]}>
             <Link className={styles["card-link"]} to="/puzzle/3">
               {" "}
@@ -86,13 +85,12 @@ function Home() {
           </div>
         </div>
         <div className={styles["card"]}>
-          <div
-            className={styles["card-top"]}
-            style={{
-              background: `url(${process.env.PUBLIC_URL}/assets/puzzle_4.jpg)`,
-              backgroundSize: "cover",
-            }}
-          ></div>
+          <div className={styles["card-top"]}>
+            <img
+              src={`${process.env.PUBLIC_URL}/assets/puzzle_4.jpg`}
+              alt="puzzle 4"
+            />
+          </div>
           <div className={styles["card-bottom"]}>
             <Link className={styles["card-link"]} to="/puzzle/4">
               {" "}
