@@ -1,5 +1,7 @@
 .leaderboard-container {
   background-color: black;
+  width: 100%;
+  min-height: 100vh;
 }
 .leaderboard-top {
   background-image: url("https://cdn.drawception.com/images/panels/2016/5-30/RgsCrODYWb-10.png");
@@ -14,33 +16,62 @@
   align-items: center;
 }
 .leaderboard-title {
-  background-color: white;
+  background-color: #002b55;
+  color: white;
+  border: solid 2px white;
+  box-shadow: white 1px 1px 5px;
   padding: 10px;
   width: 60%;
+  border-radius: 6px;
+}
+.leaderboard-title h1 {
+  margin-bottom: 10px;
 }
 .leaderboard-btn {
   width: 100%;
   padding: 5px 0;
   font-size: 1.2rem;
+  background-color: #002b55;
+  border: 2px solid white;
+  border-radius: 2px;
+  font-weight: 600;
+  color: white;
+  transition: all 300ms linear;
+}
+.leaderboard-btn:hover {
+  cursor: pointer;
+  background-color: #083f77;
 }
 .table-container {
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.932);
+  border-left: 2px solid white;
   min-height: 500px;
   display: flex;
   justify-content: center;
   overflow-y: scroll;
-}
-.table-container table {
-  width: 60%;
+  padding: 2px;
 }
 
 .table-container table {
-  width: 60%;
+  border-collapse: collapse;
+  width: 100%;
   font-size: 1.5rem;
+  color: black;
+}
+.table-container thead tr {
+  border-bottom: 2px solid black;
+}
+.table-container tbody tr {
+  border-bottom: 1px solid black;
+}
+.table-container tbody tr:nth-child(even) {
+  background-color: rgba(220, 20, 60, 0.849);
+  color: white;
 }
 .table-rank,
 .table-time {
   width: 10%;
+  max-width: 9%;
 }
 
 .table-rank,
@@ -52,4 +83,22 @@
 
 .table-content td {
   padding: 5px 0;
+}
+@media only screen and (max-width: 600px) {
+  .leaderboard-container {
+    min-width: 400px;
+  }
+  .leaderboard-title {
+    background-color: #002b55;
+    color: white;
+    border: solid 2px white;
+    box-shadow: white 1px 1px 5px;
+    padding: 10px;
+    width: 50%;
+    border-radius: 6px;
+  }
+  .table-rank,
+  .table-time {
+    width: 20%;
+  }
 }
