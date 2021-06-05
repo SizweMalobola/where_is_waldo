@@ -8,6 +8,7 @@ function Puzzle() {
   const history = useHistory();
   const pathname = history.location.pathname;
   const [time, setTime] = useState(0);
+  const [gameover, setGameover] = useState(false);
   const [waldo, setWaldo] = useState(() => {
     let stateObj;
     switch (pathname) {
@@ -200,7 +201,6 @@ function Puzzle() {
     // display the drop down menu
     let x = e.nativeEvent.offsetX;
     let y = e.nativeEvent.offsetY;
-    console.log("clicked", x, y);
     const dropdown = dropdownRef.current;
     dropdown.style.top = `${y}px`;
     dropdown.style.left = `${x}px`;
@@ -215,106 +215,109 @@ function Puzzle() {
   const closeModal = () => {
     setModal(false);
   };
+
   // side effects
+  // todo try to fix this, and make the page more responsive
   useEffect(() => {
     const timer = setTimeout(() => {
       setTime(time + 1);
     }, 1000);
     // timer is stopped after all waldo and his friends are found.
-    if (waldo.tagged && odlaw.tagged && wizard.tagged) {
+    if (!(waldo.tagged && odlaw.tagged && wizard.tagged)) {
+    } else {
       clearTimeout(timer);
-      console.log(`game finished after ${time}s`);
       setModal(true);
     }
-  }, [odlaw.tagged, time, waldo.tagged, wizard.tagged]);
+    // ! temp fix
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [time]);
 
   return (
-    <div className={styles["main-container"]}>
-      <div className={styles["img-container"]}>
-        <ul
-          ref={dropdownRef}
-          className={`${styles["dropdown-menu"]} ${styles["hidden"]}`}
-        >
-          {!waldo.tagged && (
-            <li
-              onClick={(e) => {
-                if (tag(e, waldo)) {
-                  setWaldo({ ...waldo, tagged: true });
-                  console.log("waldo was tagged");
-                }
-              }}
-            >
-              <img
-                src={process.env.PUBLIC_URL + "/assets/waldo.jpg"}
-                alt="waldo"
-              />
-            </li>
-          )}
-          {!odlaw.tagged && (
-            <li
-              onClick={(e) => {
-                if (tag(e, odlaw)) {
-                  setOdlaw({ ...odlaw, tagged: true });
-                  console.log("odlaw was tagged");
-                }
-              }}
-            >
-              <img
-                src={process.env.PUBLIC_URL + "/assets/odlaw.jpg"}
-                alt="odlaw"
-              />
-            </li>
-          )}
-          {!wizard.tagged && (
-            <li
-              onClick={(e) => {
-                if (tag(e, wizard)) {
-                  setWizard({ ...wizard, tagged: true });
-                  console.log("wizard was tagged");
-                }
-              }}
-            >
-              <img
-                src={process.env.PUBLIC_URL + "/assets/wizard.jpg"}
-                alt="wizard"
-              />
-            </li>
-          )}
-        </ul>
-        <img
-          onClick={(e) => {
-            clickHandler(e);
-          }}
-          src={process.env.PUBLIC_URL + puzzleUrl}
-          alt="puzzle"
-        />
-      </div>
-      <div className={styles["status-container"]}>
-        {[waldo.tagged, odlaw.tagged, wizard.tagged].every(
-          (i) => i === true
-        ) ? (
-          <h1
-            className={styles["sub-time"]}
-            onClick={() => {
-              setModal(true);
-            }}
+    <>
+      <div className={styles["main-container"]}>
+        <div className={styles["img-container"]}>
+          <ul
+            ref={dropdownRef}
+            className={`${styles["dropdown-menu"]} ${styles["hidden"]}`}
           >
-            Submit your time of {time}s
-          </h1>
-        ) : (
-          <h1>Time: {time}s</h1>
-        )}
-
-        <div>
-          <p className={waldo.tagged ? styles["found"] : null}>Waldo </p>
-          <p className={odlaw.tagged ? styles["found"] : null}>Odlaw</p>
-          <p className={wizard.tagged ? styles["found"] : null}>Wizard</p>
+            {!waldo.tagged && (
+              <li
+                onClick={(e) => {
+                  if (tag(e, waldo)) {
+                    setWaldo({ ...waldo, tagged: true });
+                  }
+                }}
+              >
+                <img
+                  src={process.env.PUBLIC_URL + "/assets/waldo.jpg"}
+                  alt="waldo"
+                />
+              </li>
+            )}
+            {!odlaw.tagged && (
+              <li
+                onClick={(e) => {
+                  if (tag(e, odlaw)) {
+                    setOdlaw({ ...odlaw, tagged: true });
+                  }
+                }}
+              >
+                <img
+                  src={process.env.PUBLIC_URL + "/assets/odlaw.jpg"}
+                  alt="odlaw"
+                />
+              </li>
+            )}
+            {!wizard.tagged && (
+              <li
+                onClick={(e) => {
+                  if (tag(e, wizard)) {
+                    setWizard({ ...wizard, tagged: true });
+                  }
+                }}
+              >
+                <img
+                  src={process.env.PUBLIC_URL + "/assets/wizard.jpg"}
+                  alt="wizard"
+                />
+              </li>
+            )}
+          </ul>
+          <img
+            onClick={(e) => {
+              clickHandler(e);
+            }}
+            src={process.env.PUBLIC_URL + puzzleUrl}
+            alt="puzzle"
+          />
         </div>
+        <div className={styles["status-container"]}>
+          {[waldo.tagged, odlaw.tagged, wizard.tagged].every(
+            (i) => i === true
+          ) ? (
+            <h1
+              className={styles["sub-time"]}
+              onClick={() => {
+                setModal(true);
+              }}
+            >
+              {modal ? `Submit your time` : `Submit your time of ${time}s`}
+            </h1>
+          ) : (
+            <h1>Time: {time}s</h1>
+          )}
+
+          <div>
+            <p className={waldo.tagged ? styles["found"] : null}>Waldo </p>
+            <p className={odlaw.tagged ? styles["found"] : null}>Odlaw</p>
+            <p className={wizard.tagged ? styles["found"] : null}>Wizard</p>
+          </div>
+        </div>
+        {modal && (
+          <Endgame history={history} closeModal={closeModal} time={time} />
+        )}
       </div>
-      {modal && (
-        <Endgame history={history} closeModal={closeModal} time={time} />
-      )}
-    </div>
+    </>
   );
 }
 
