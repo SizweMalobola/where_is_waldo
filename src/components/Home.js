@@ -1,19 +1,25 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import styles from "./homeStyle.module.css";
-import ClipLoader from "react-spinners/ClipLoader";
+import RingLoader from "react-spinners/RingLoader";
 
 function Home() {
   const [loading, setLoading] = useState(true);
+  const [loadingImages, setLoadingImages] = useState(true);
+  const containerRef = useRef();
   useEffect(() => {
     window.onload = setLoading(false);
+    let imagesL = document.querySelectorAll(`.${styles["grid-container"]} img`);
+    console.log(imagesL);
+    //
+    setTimeout(() => {
+      setLoadingImages(false);
+    }, 1000);
   }, []);
-  //Todo add loading screen on images
-
   return (
     <>
       {loading ? (
-        <ClipLoader color={"red"} loading={loading} size={150} />
+        <RingLoader color={"red"} loading={loading} size={150} />
       ) : (
         <div
           style={{
@@ -36,9 +42,18 @@ function Home() {
               death, <span className={styles["header-span"]}>FIND WALDO!</span>
             </p>
           </div>
-          <div className={styles["grid-container"]}>
+          <div ref={containerRef} className={styles["grid-container"]}>
             <div className={styles["card"]}>
               <div className={styles["card-top"]}>
+                {loadingImages && (
+                  <div className={styles["loader-container"]}>
+                    <RingLoader
+                      color={"red"}
+                      loading={loadingImages}
+                      size={100}
+                    />
+                  </div>
+                )}
                 <img
                   src={`${process.env.PUBLIC_URL}/assets/puzzle_1.jpg`}
                   alt="puzzle 1"
@@ -58,6 +73,15 @@ function Home() {
             </div>
             <div className={styles["card"]}>
               <div className={styles["card-top"]}>
+                {loadingImages && (
+                  <div className={styles["loader-container"]}>
+                    <RingLoader
+                      color={"red"}
+                      loading={loadingImages}
+                      size={100}
+                    />
+                  </div>
+                )}
                 <img
                   src={`${process.env.PUBLIC_URL}/assets/puzzle_2.jpg`}
                   alt="puzzle 2"
@@ -77,6 +101,15 @@ function Home() {
             </div>
             <div className={styles["card"]}>
               <div className={styles["card-top"]}>
+                {loadingImages && (
+                  <div className={styles["loader-container"]}>
+                    <RingLoader
+                      color={"red"}
+                      loading={loadingImages}
+                      size={100}
+                    />
+                  </div>
+                )}
                 <img
                   src={`${process.env.PUBLIC_URL}/assets/puzzle_3.jpeg`}
                   alt="puzzle 3"
@@ -96,6 +129,15 @@ function Home() {
             </div>
             <div className={styles["card"]}>
               <div className={styles["card-top"]}>
+                {loadingImages && (
+                  <div className={styles["loader-container"]}>
+                    <RingLoader
+                      color={"red"}
+                      loading={loadingImages}
+                      size={100}
+                    />
+                  </div>
+                )}
                 <img
                   src={`${process.env.PUBLIC_URL}/assets/puzzle_4.jpg`}
                   alt="puzzle 4"
