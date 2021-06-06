@@ -225,11 +225,13 @@ function Puzzle() {
     if (!(waldo.tagged && odlaw.tagged && wizard.tagged)) {
     } else {
       clearTimeout(timer);
-      setModal(true);
+      setTimeout(() => {
+        setModal(true);
+      }, 800);
     }
     // ! temp fix
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [time]);
 
   return (
     <>
@@ -300,7 +302,7 @@ function Puzzle() {
                 setModal(true);
               }}
             >
-              {modal ? `Submit your time` : `Submit your time of ${time}s`}
+              Submit Your Time
             </h1>
           ) : (
             <h1>Time: {time}s</h1>
