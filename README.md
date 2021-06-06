@@ -1,70 +1,49 @@
-# Getting Started with Create React App
+# Where Is Waldo 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is a web version of a british series of puzzle books called [Where is Wally?](https://en.wikipedia.org/wiki/Where's_Wally%3F).
 
-## Available Scripts
+## How it works
 
-In the project directory, you can run:
+The player first chooses a photo before the game begins. After the photo has been chosen a timer begins counting up. The player is supposed to look for Waldo, Odlaw and the Wizard, all of which are hiding in plain sight somewhere on the chosen photo. The goal of this game is to find Waldo and his associates as quickly as possible to earn top rank on the leaderboard. Once Waldo and his associates have been found the time the player took to finish the round will be displayed and the player will be prompted to fill in their name which will be displayed on the leaderboard. 
 
-### `yarn start`
++ There are four photo puzzles to choose from, each with their own leaderboards.
++ On each photo puzzle you have to find 3 characters(Waldo,Odlaw,Wizard).
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+This is a fullstack project which implements the use of ReactJS and related Fontend concepts and the Backend is implemented with a BAAS, Firebase.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Built With
 
-### `yarn test`
+- HTML
+- CSS3
+- JavaScript/ES6
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Frameworks
 
-### `yarn build`
+- ReactJS
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Libraries
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- React Router DOM
+- React Spinners
+- React Icons
+- Emotion
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Backend
 
-### `yarn eject`
+- Firebase
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Applied Skills
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- Use of Firebase to setup realtime database.
+- Use of AJAX concepts like Promises.
+- Use of React functional components and hooks.
+- Use of React Router, which is the standard routing library for React.
+- Use of React Icons, a small library that helps you to simplify using icons in your React applications.
+- Use of React lifecycle methods.
+- Use of core React concepts like props & state.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
+## Live Demo
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+[Live Demo Link](https://sizwemalobola.github.io/where_is_waldo/)
