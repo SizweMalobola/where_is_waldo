@@ -87,7 +87,7 @@ function Leaderboard() {
           <button
             className={styles["leaderboard-btn"]}
             onClick={() => {
-              history.push("/");
+              history.push("/where_is_waldo");
             }}
           >
             Home
