@@ -11,7 +11,7 @@ export default class App extends Component {
         <BrowserRouter>
           <Switch>
             <Container>
-              <Route exact path="/" component={Home}></Route>
+              <Route exact path="/where_is_waldo" component={Home}></Route>
               <Route path="/puzzle/:id" component={Puzzle}></Route>
               <Route path="/leaderboard/:id" component={Leaderboard}></Route>
             </Container>
