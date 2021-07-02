@@ -5,6 +5,7 @@ import styles from "./puzzleStyle.module.css";
 
 function Puzzle() {
   // set a count, that will keep track of seconds after the game has started.
+  // ! use match instead of useHistory
   const history = useHistory();
   const pathname = history.location.pathname;
   const [time, setTime] = useState(0);
