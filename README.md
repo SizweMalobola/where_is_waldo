@@ -46,4 +46,4 @@ This is a fullstack project which implements the use of ReactJS and related Font
 
 ## Live Demo
 
-[Live Demo Link](https://sizwemalobola.github.io/where_is_waldo/)
+
