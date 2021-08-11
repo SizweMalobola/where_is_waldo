@@ -1,6 +1,6 @@
 # Where Is Waldo 
 
-This project is a web version of a british series of puzzle books called [Where is Wally?](https://en.wikipedia.org/wiki/Where's_Wally%3F).
+This project is a web version of a british series of puzzle books called [Where is Wally?](https://en.wikipedia.org/wiki/Where's_Wally%3F)
 
 ## How it works
 
